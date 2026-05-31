@@ -8,12 +8,15 @@ ISeeYou는 텍스트, 이미지, 비디오, 멀티모달 입력을 분석해 AI 
 
 ~~~text
 ISeeYou/
-├── UI/                         # Vite + React 프론트엔드
+├── Frontend/
+│   ├── UI/                     # Vite + React 프론트엔드
+│   └── Admin/                  # 관리자페이지
 ├── AI/
 │   ├── Image/                  # 이미지 AI 생성물 탐지 모델 연결 파일
 │   ├── Text/                   # 한국어 LOG-AID, 영어 DeBERTa text 모델 연결 파일
 │   ├── Video/                  # 7개 EfficientNet-B0 계열 비디오 앙상블 연결 파일
 │   └── Multimodal/             # 통합 FastAPI 백엔드, fusion, XAI 응답 구성
+├── Backend/                    # 저장/관리 서버
 ├── Extension/                  # Chrome 확장프로그램과 확장용 로컬 서버
 ├── MODEL_ARTIFACTS.md          # GitHub에 올리지 않는 모델 파일 관리 메모
 ├── CLEANUP_NOTES.md            # 정리 기준과 archive 후보 기록
@@ -27,9 +30,11 @@ ISeeYou/
 1. GitHub에서 코드 받기
 2. Hugging Face에서 모델 파일 받기
 3. 모델 파일을 로컬 프로젝트 경로에 배치하기
-4. 백엔드 실행하기
-5. 프론트엔드 실행하기
-6. Chrome 확장프로그램 실행하기
+4. 모델 서버 실행하기
+5. DB 생성하고 관리자 계정 만들기
+6. 저장/관리 서버 실행하기
+7. 프론트엔드 실행하기
+8. Chrome 확장프로그램 실행하기
 
 ## 3. 경로 표기 규칙
 
@@ -135,7 +140,7 @@ New-Item -ItemType Directory -Force -Path "Extension\\video" | Out-Null
 Copy-Item "_model_artifacts\\web\\Video\\*" "Extension\\video" -Recurse -Force
 ~~~
 
-## 8. 웹 백엔드 실행
+## 8. 웹 모델 서버 실행
 
 프로젝트 루트에서 실행합니다.
 
@@ -157,10 +162,46 @@ cd <ISeeYou 프로젝트 루트>\\AI\\Multimodal\\inference
 powershell -ExecutionPolicy Bypass -File .\\start_multimodal_backend.ps1
 ~~~
 
-## 9. 프론트엔드 실행
+## 9. DB, 관리자 계정 생성
+
+PostgreSQL을 설치해줍니다. PostgreSQL 15 이상은 대체로 동작 가능하지만, 본 프로젝트는 18.3 환경에서 개발 및 테스트했습니다.
+
+pgAdmin4 실행 후:\
+Servers → PostgreSQL → Databases → 우클릭 → Create → Database
+
+Backend에서 .env.example 복사해서 .env파일 생성 후 []로 감싸진 부분을 수정해줍니다.
+
+관리자 계정을 만들어줍니다.
+
+```powershell
+cd <ISeeYou 프로젝트 루트>\\Backend
+python -m pip install -r requirements.txt
+python create_admin.py
+```
+
+`python create_admin.py`는 관리자 아이디와 비밀번호를 직접 입력해서 생성합니다.
+
+## 10. 웹 저장/관리 서버 실행
+
+프로젝트 루트에서 실행합니다.
 
 ~~~powershell
-cd <ISeeYou 프로젝트 루트>\\UI
+cd <ISeeYou 프로젝트 루트>
+python Backend\\storage_gateway_server.py
+~~~
+
+기본 API 주소:
+
+~~~text
+http://127.0.0.1:8787
+~~~
+
+## 11. 프론트엔드 실행
+
+사용자페이지:
+
+~~~powershell
+cd <ISeeYou 프로젝트 루트>\\Frontend\\UI
 npm install
 npm run dev -- --host 127.0.0.1 --port 5174 --strictPort
 ~~~
@@ -176,13 +217,27 @@ http://127.0.0.1:5174
 빌드 확인:
 
 ~~~powershell
-cd <ISeeYou 프로젝트 루트>\\UI
+cd <ISeeYou 프로젝트 루트>\\Frontend\\UI
 npm run build
 ~~~
 
-## 10. Chrome 확장프로그램 실행
+관리자페이지:
 
-### 10-1. 확장용 로컬 서버 실행
+~~~powershell
+cd <ISeeYou 프로젝트 루트>\\Frontend\\Admin
+npm install
+npm run dev -- --host 127.0.0.1 --port 5175 --strictPort
+~~~
+
+접속 주소:
+
+~~~text
+http://127.0.0.1:5175
+~~~
+
+## 12. Chrome 확장프로그램 실행
+
+### 12-1. 확장용 로컬 서버 실행
 
 현재 로컬 테스트는 Extension/mock_server.py로 확장 UI와 페이지 배지 흐름을 확인할 수 있습니다.
 
@@ -199,7 +254,7 @@ http://127.0.0.1:8000
 
 실제 모델 서버로 전환하려면 Extension/server.py를 실행하고, Extension/versionv9/weights와 Extension/video/checkpoints_* 아래에 필요한 best.pt를 배치해야 합니다.
 
-### 10-2. Chrome에 확장 로드
+### 12-2. Chrome에 확장 로드
 
 1. Chrome에서 chrome://extensions 열기
 2. 개발자 모드 켜기
@@ -218,7 +273,7 @@ http://localhost:8000/demo/browse
 
 확장프로그램을 새로 로드한 뒤에는 기존 페이지를 새로고침해야 content script가 다시 주입됩니다.
 
-## 11. 현재 구현된 분석 모드
+## 13. 현재 구현된 분석 모드
 
 | 모드 | 현재 상태 | XAI 설명 방식 |
 |---|---|---|
@@ -227,7 +282,7 @@ http://localhost:8000/demo/browse
 | Video | 7개 비디오 모델 앙상블 | 프레임 단위 점수, 의심 구간 타임라인, 모델 의견 일치/불일치 |
 | Multimodal | 여러 모달리티 신호 통합 | 모달리티별 점수, 신뢰도 낮은 입력의 영향 축소, 최종 fusion 근거 |
 
-## 12. 모델 버전 메모
+## 14. 모델 버전 메모
 
 2026-05-18 기준 서비스 연결 멀티모달 모델은 final5000_gpu_anchor_fusion_v4b 기반 runtime bundle입니다.
 
@@ -239,7 +294,7 @@ http://localhost:8000/demo/browse
 
 final8000 계열 학습은 일부 base 모델 중간 결과만 확인되었고, AV-sync 및 최종 fusion 산출물이 완전히 확인되지 않았기 때문에 현재 서비스에는 v4b bundle을 연결했습니다.
 
-## 13. 주의사항
+## 15. 주의사항
 
 - 실제 모델 로직과 백엔드 API 경로는 임의로 바꾸지 않습니다.
 - .env, API key, token, private key는 GitHub와 Hugging Face에 올리지 않습니다.
@@ -248,20 +303,27 @@ final8000 계열 학습은 일부 base 모델 중간 결과만 확인되었고, 
 - 새 모델로 교체할 때는 MODEL_ARTIFACTS.md에 모델명, 경로, 성능, 교체 사유를 기록합니다.
 - README에 아직 구현되지 않은 기능을 구현된 것처럼 쓰지 않습니다.
 
-## 14. 빠른 실행 요약
+## 16. 빠른 실행 요약
 
 ~~~powershell
 # 모델 다운로드
 cd <ISeeYou 프로젝트 루트>
 hf download yoonjeongah/ISeeYou-model-weights --repo-type model --local-dir .\\_model_artifacts
 
-# 백엔드
+# 모델 서버
 python AI\\Multimodal\\inference\\multimodal_inference_server.py
 
+# 저장/관리 서버
+python Backend\\storage_gateway_server.py
+
 # 프론트엔드
-cd <ISeeYou 프로젝트 루트>\\UI
+cd <ISeeYou 프로젝트 루트>\\Frontend\\UI
 npm install
 npm run dev -- --host 127.0.0.1 --port 5174 --strictPort
+
+cd <ISeeYou 프로젝트 루트>\\Frontend\\Admin
+npm install
+npm run dev -- --host 127.0.0.1 --port 5175 --strictPort
 
 # 확장 서버
 cd <ISeeYou 프로젝트 루트>\\Extension
@@ -272,6 +334,10 @@ powershell -ExecutionPolicy Bypass -File .\\start_extension_mock_server.ps1
 
 ~~~text
 http://127.0.0.1:5174
+~~~
+
+~~~text
+http://127.0.0.1:5175
 ~~~
 
 확장 테스트:

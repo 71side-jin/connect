@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@500;700;800&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #eef2f7;
+  --bg-soft: #f8fafc;
+  --surface: rgba(255, 255, 255, 0.78);
+  --surface-strong: rgba(255, 255, 255, 0.92);
+  --surface-bright: rgba(255, 255, 255, 0.96);
+  --line: rgba(15, 23, 42, 0.08);
+  --line-strong: rgba(15, 23, 42, 0.14);
+  --text: #0f172a;
+  --text-dim: rgba(15, 23, 42, 0.72);
+  --text-soft: rgba(15, 23, 42, 0.48);
+  --cyan: #14b8a6;
+  --violet: #ff7b54;
+  --emerald: #84cc16;
+  --amber: #f59e0b;
+  --rose: #ef4444;
+  --shadow-xl: 0 42px 130px rgba(15, 23, 42, 0.12);
+  --shadow-lg: 0 22px 80px rgba(15, 23, 42, 0.08);
+  --radius-xl: 34px;
+  --radius-lg: 24px;
+  --radius-md: 18px;
+  --radius-sm: 14px;
+  --content-width: 1400px;
+
+  font-family: 'Manrope', sans-serif;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+
+  color: var(--text);
+
+  background:
+    radial-gradient(circle at 14% 10%, rgba(255, 123, 84, 0.08), transparent 28%),
+    radial-gradient(circle at 88% 18%, rgba(20, 184, 166, 0.07), transparent 26%),
+    radial-gradient(circle at 62% 72%, rgba(132, 204, 22, 0.05), transparent 24%),
+    linear-gradient(180deg, #f8fafc 0%, #f2f6fb 42%, #edf2f7 100%);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  border: 0;
+}

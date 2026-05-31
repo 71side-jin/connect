@@ -1,0 +1,31 @@
+<svg width="1600" height="1200" viewBox="0 0 1600 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1200" rx="64" fill="#0A0A09"/>
+  <rect width="1600" height="1200" fill="url(#bg)"/>
+  <circle cx="1198" cy="308" r="280" fill="#FF7B54" fill-opacity="0.16"/>
+  <circle cx="280" cy="898" r="332" fill="#7EF2D0" fill-opacity="0.14"/>
+  <rect x="112" y="132" width="1376" height="936" rx="36" fill="#12110F" stroke="#2B2925" stroke-width="2"/>
+  <path d="M164 730C222 730 222 474 280 474C338 474 338 830 396 830C454 830 454 584 512 584C570 584 570 664 628 664C686 664 686 420 744 420C802 420 802 760 860 760C918 760 918 536 976 536C1034 536 1034 650 1092 650C1150 650 1150 336 1208 336C1266 336 1266 784 1324 784C1382 784 1382 520 1440 520" stroke="url(#wave)" stroke-width="22" stroke-linecap="round"/>
+  <path d="M164 832H1440" stroke="#2E2A25" stroke-width="2" stroke-dasharray="14 14"/>
+  <path d="M164 392H1440" stroke="#2E2A25" stroke-width="2" stroke-dasharray="14 14"/>
+  <path d="M164 610H1440" stroke="#2E2A25" stroke-width="2" stroke-dasharray="14 14"/>
+  <rect x="186" y="194" width="286" height="150" rx="26" fill="#171513" stroke="#2D2A25" stroke-width="2"/>
+  <text x="220" y="244" fill="#FFF8EC" font-family="Arial, sans-serif" font-size="22" letter-spacing="3">AUDIO / LIPSYNC</text>
+  <text x="220" y="304" fill="#D4FF61" font-family="Arial, sans-serif" font-size="54" font-weight="700">+12ms drift</text>
+  <rect x="1100" y="806" width="308" height="164" rx="28" fill="#171513" stroke="#2D2A25" stroke-width="2"/>
+  <text x="1132" y="856" fill="#FFF8EC" font-family="Arial, sans-serif" font-size="22" letter-spacing="3">FREQUENCY MAP</text>
+  <path d="M1138 892H1358" stroke="#3A3630" stroke-width="14" stroke-linecap="round"/>
+  <path d="M1138 892H1300" stroke="#FFBD59" stroke-width="14" stroke-linecap="round"/>
+  <path d="M1138 930H1358" stroke="#3A3630" stroke-width="14" stroke-linecap="round"/>
+  <path d="M1138 930H1248" stroke="#7EF2D0" stroke-width="14" stroke-linecap="round"/>
+  <defs>
+    <linearGradient id="bg" x1="166" y1="140" x2="1428" y2="1078" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#161412"/>
+      <stop offset="1" stop-color="#090909"/>
+    </linearGradient>
+    <linearGradient id="wave" x1="164" y1="520" x2="1440" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7EF2D0"/>
+      <stop offset="0.45" stop-color="#D4FF61"/>
+      <stop offset="1" stop-color="#FF7B54"/>
+    </linearGradient>
+  </defs>
+</svg>

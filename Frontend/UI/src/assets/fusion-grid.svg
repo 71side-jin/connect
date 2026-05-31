@@ -1,0 +1,54 @@
+<svg width="1600" height="1200" viewBox="0 0 1600 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1200" rx="64" fill="#090909"/>
+  <rect width="1600" height="1200" fill="url(#bg)"/>
+  <circle cx="308" cy="244" r="240" fill="#D4FF61" fill-opacity="0.14"/>
+  <circle cx="1278" cy="930" r="320" fill="#FF7B54" fill-opacity="0.14"/>
+  <g opacity="0.9">
+    <rect x="186" y="174" width="338" height="286" rx="30" fill="#131210" stroke="#2D2A25" stroke-width="2"/>
+    <rect x="566" y="174" width="338" height="286" rx="30" fill="#131210" stroke="#2D2A25" stroke-width="2"/>
+    <rect x="946" y="174" width="468" height="286" rx="30" fill="#131210" stroke="#2D2A25" stroke-width="2"/>
+    <rect x="186" y="504" width="468" height="510" rx="30" fill="#131210" stroke="#2D2A25" stroke-width="2"/>
+    <rect x="694" y="504" width="340" height="510" rx="30" fill="#131210" stroke="#2D2A25" stroke-width="2"/>
+    <rect x="1074" y="504" width="340" height="510" rx="30" fill="#131210" stroke="#2D2A25" stroke-width="2"/>
+  </g>
+  <text x="224" y="226" fill="#FFF8EC" font-family="Arial, sans-serif" font-size="22" letter-spacing="3">IMAGE</text>
+  <text x="604" y="226" fill="#FFF8EC" font-family="Arial, sans-serif" font-size="22" letter-spacing="3">TEXT</text>
+  <text x="984" y="226" fill="#FFF8EC" font-family="Arial, sans-serif" font-size="22" letter-spacing="3">VIDEO</text>
+  <text x="224" y="556" fill="#FFF8EC" font-family="Arial, sans-serif" font-size="22" letter-spacing="3">FUSION BOARD</text>
+  <text x="732" y="556" fill="#FFF8EC" font-family="Arial, sans-serif" font-size="22" letter-spacing="3">AUDIO</text>
+  <text x="1110" y="556" fill="#FFF8EC" font-family="Arial, sans-serif" font-size="22" letter-spacing="3">TIMELINE</text>
+  <circle cx="330" cy="318" r="62" fill="#FF7B54"/>
+  <rect x="598" y="286" width="274" height="28" rx="14" fill="#3A3630"/>
+  <rect x="598" y="286" width="176" height="28" rx="14" fill="#D4FF61"/>
+  <rect x="598" y="334" width="246" height="18" rx="9" fill="#2E2A25"/>
+  <rect x="598" y="334" width="134" height="18" rx="9" fill="#FFF8EC"/>
+  <path d="M990 358L1108 248L1172 322L1266 230L1364 348" stroke="#7EF2D0" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M246 698H590" stroke="#2E2A25" stroke-width="16" stroke-linecap="round"/>
+  <path d="M246 698H510" stroke="#FFBD59" stroke-width="16" stroke-linecap="round"/>
+  <path d="M246 756H590" stroke="#2E2A25" stroke-width="16" stroke-linecap="round"/>
+  <path d="M246 756H558" stroke="#7EF2D0" stroke-width="16" stroke-linecap="round"/>
+  <path d="M246 814H590" stroke="#2E2A25" stroke-width="16" stroke-linecap="round"/>
+  <path d="M246 814H420" stroke="#FF6F91" stroke-width="16" stroke-linecap="round"/>
+  <path d="M742 650C782 714 812 734 862 734C912 734 946 686 986 614" stroke="url(#a)" stroke-width="24" stroke-linecap="round"/>
+  <path d="M742 764C782 700 812 680 862 680C912 680 946 728 986 800" stroke="url(#b)" stroke-width="24" stroke-linecap="round"/>
+  <path d="M1118 646H1338" stroke="#2E2A25" stroke-width="18" stroke-linecap="round"/>
+  <path d="M1118 646H1296" stroke="#D4FF61" stroke-width="18" stroke-linecap="round"/>
+  <path d="M1118 726H1338" stroke="#2E2A25" stroke-width="18" stroke-linecap="round"/>
+  <path d="M1118 726H1238" stroke="#7EF2D0" stroke-width="18" stroke-linecap="round"/>
+  <path d="M1118 806H1338" stroke="#2E2A25" stroke-width="18" stroke-linecap="round"/>
+  <path d="M1118 806H1270" stroke="#FF7B54" stroke-width="18" stroke-linecap="round"/>
+  <defs>
+    <linearGradient id="bg" x1="188" y1="176" x2="1412" y2="1036" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#161412"/>
+      <stop offset="1" stop-color="#090909"/>
+    </linearGradient>
+    <linearGradient id="a" x1="742" y1="674" x2="986" y2="674" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7EF2D0"/>
+      <stop offset="1" stop-color="#D4FF61"/>
+    </linearGradient>
+    <linearGradient id="b" x1="742" y1="740" x2="986" y2="740" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF7B54"/>
+      <stop offset="1" stop-color="#FFBD59"/>
+    </linearGradient>
+  </defs>
+</svg>
