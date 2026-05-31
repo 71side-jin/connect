@@ -1,0 +1,7 @@
+{
+  "realCount": 1000,
+  "fakeCount": 1000,
+  "size": 224,
+  "maxPerClass": 1000,
+  "manifest": "D:\\ISeeYou\\final_video_dataset_5000_5000_prepared\\final5000_benchmark.csv"
+}

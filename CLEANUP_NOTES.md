@@ -16,7 +16,7 @@
 - `node_modules`: 설치 산출물. `npm install`로 복구 가능.
 - `dist`: 빌드 산출물. `npm run build`로 복구 가능.
 - `.git`: 원본 저장소 메타데이터.
-- `.env.local`: 민감정보 가능성이 있어 복사하지 않음. `UI/.env.example`만 생성.
+- `.env.local`: 민감정보 가능성이 있어 복사하지 않음. `Frontend/UI/.env.example`만 생성.
 - `*.log`: 실행 로그.
 - `__pycache__`, `__MACOSX`: 생성/압축 부산물.
 

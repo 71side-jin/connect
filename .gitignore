@@ -2,8 +2,8 @@
 **/node_modules/
 
 # Frontend build/cache
-UI/dist/
-UI/.vite/
+Frontend/UI/dist/
+Frontend/UI/.vite/
 **/.vite/
 
 # Python cache
@@ -61,3 +61,8 @@ Thumbs.db
 Extension/chrome-local-profile/
 Extension/*-server-*.log
 Extension/*-server-*.err.log
+
+# Backend
+.env
+Backend/.env
+Backend/storage/
